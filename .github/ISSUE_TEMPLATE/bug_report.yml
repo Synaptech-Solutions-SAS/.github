@@ -1,0 +1,68 @@
+name: Bug report
+description: Report something that isn't working as expected.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in every required field: reports without enough information to reproduce the problem may be closed.
+
+        **Security vulnerabilities:** do not open a public issue. Follow the [security policy](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/SECURITY.md) to report them privately.
+
+        Projects in this organization are maintained alongside a business, so replies may take a while. See the [contributing guidelines](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/CONTRIBUTING.md) for details.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and pull requests, and this hasn't been reported yet.
+          required: true
+        - label: If this repository uses OpenSpec or agent-skills, I checked its planned work (open OpenSpec changes or specs).
+          required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly and concisely.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The minimal steps needed to trigger the bug.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your OS, runtime and relevant dependency versions, and the version or commit of the project.
+      placeholder: |
+        - OS:
+        - Runtime and version:
+        - Project version or commit:
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and error messages
+      description: Paste any relevant output. It will be formatted as code automatically.
+      render: shell
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, workarounds you've found, or anything else that might help.
