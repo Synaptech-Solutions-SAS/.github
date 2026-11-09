@@ -2,39 +2,30 @@
 
 **Practical software. Honest AI.**
 
-🌐 [Website](https://synaptech-solutions.com/) ·
-[Services](https://synaptech-solutions.com/services) ·
-[Work](https://synaptech-solutions.com/work) ·
-[Contact](https://synaptech-solutions.com/contact) ·
+🌐 [synaptech-solutions.com](https://synaptech-solutions.com/) ·
 [Español](https://synaptech-solutions.com/es)
 
 ## Synaptech as a business
 
 Synaptech Solutions is the independent software engineering practice of Germán
 Martínez, based in Uruguay. It builds AI, LLM and backend systems that run in
-production for teams in Latin America, the United States and Europe.
+production, for teams that need AI to work reliably: AI assistants, ERP and MCP
+integrations, data pipelines and workflow automation. The work is remote, with
+teams in Latin America, the United States and Europe.
 
-**Project work**
+How the work gets done:
 
-- **Build something new:** a production system from scratch, planned in a
-  signed spec, built with tests and CI, documented and handed off.
-- **Fix what's broken:** find the root cause of a problem, fix it, and leave
-  the system observable and documented.
-- **Architecture audit:** written findings and prioritized recommendations on
-  your architecture, code and operations.
-- **AI / LLM integration:** LLM features added to the systems you already run,
-  shipped with evals, guardrails and fallbacks.
+- **Architecture before implementation.** Every project starts with a written
+  spec, so scope and "done" are clear before any code is written.
+- **AI as infrastructure, not magic.** LLM features ship with evals, guardrails
+  and fallbacks, because models fail silently and drift over time.
+- **Honest tradeoffs, documented decisions.** No vague AI hype: if AI isn't the
+  right tool for a problem, that gets said up front.
+- **Ownership by default.** Clients get the code, documentation and runbooks,
+  so their systems don't depend on Synaptech to keep running.
 
-**Workflow automation**
-
-- **One-time automation:** scraping, data cleanup, document processing or
-  migrations, delivered with the script that produced the results.
-- **Automation pipeline:** a recurring manual workflow automated and running
-  on your infrastructure, with failure alerts and a runbook.
-
-Every engagement starts with a written spec, and you own everything that's
-built. See [what each service includes and its starting price](https://synaptech-solutions.com/services),
-or [send a brief](https://synaptech-solutions.com/contact).
+Services range from new production systems and architecture audits to workflow
+automation. The [website](https://synaptech-solutions.com/) has the details.
 
 ## Synaptech in open source
 
