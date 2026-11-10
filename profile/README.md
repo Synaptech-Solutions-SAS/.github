@@ -6,71 +6,6 @@
 [Español](https://synaptech-solutions.com/es) ·
 ✉️ [g.martinez@synaptech-solutions.com](mailto:g.martinez@synaptech-solutions.com)
 
-## Synaptech as a business
-
-Synaptech Solutions is the independent software engineering practice of Germán
-Martínez, based in Uruguay. It builds AI, LLM and backend systems that run in
-production, for teams that need AI to work reliably: AI assistants, ERP and MCP
-integrations, data pipelines and workflow automation. The work is remote, with
-teams in Latin America, the United States and Europe.
-
-Most of the experience is in three areas:
-
-- **ERP software:** assistants that read and act on ERP records, and ERP
-  reporting exposed to LLM clients through the Model Context Protocol (MCP),
-  with OAuth and explicit report parameters.
-- **Chatbots with RAG and GraphRAG:** conversational assistants grounded in
-  product manuals, internal wikis and live business data, orchestrated with
-  LangChain and LangGraph.
-- **Knowledge bases on graph databases:** knowledge graphs built with Neo4j and
-  Cognee, so an assistant can follow how entities relate to each other instead
-  of pulling back loose text chunks.
-
-How the work gets done:
-
-- **Architecture before implementation.** Every project starts with a written
-  spec, so scope and "done" are clear before any code is written.
-- **AI as infrastructure, not magic.** LLM features ship with evals, guardrails
-  and fallbacks, because models fail silently and drift over time.
-- **Honest tradeoffs, documented decisions.** If AI isn't the right tool for a
-  problem, you hear it before anything gets built.
-- **Ownership by default.** Clients get the code, documentation and runbooks,
-  so their systems don't depend on Synaptech to keep running.
-
-**Products in development**
-
-- **Hilo Nativo:** a multi-seller marketplace for handcrafted knitwear. It's a
-  Python 3.12 modular monolith (FastAPI, with Jinja2 and HTMX for server-rendered
-  pages, and SQLAlchemy 2 and Alembic on PostgreSQL) that runs as two process
-  roles from one codebase: the web app, and an APScheduler worker for
-  settlements, payouts, reconciliation and retries. Payment state comes only
-  from verified, idempotent Mercado Pago webhooks. Money moves through an
-  append-only ledger with compensating corrections, and stock is reserved under
-  row locks, with a database constraint that blocks over-reservation.
-  Buyer-seller messages and attachments are encrypted at rest. Attachments go to
-  private object storage, and operator tools sit behind capability-based
-  authorization. Tracing and metrics use OpenTelemetry.
-- **Rentica:** property management for landlords: units, tenants, rent
-  payments, guaranties, rent adjustments, maintenance and tax records. One Expo
-  and React Native (TypeScript) codebase targets iOS, Android and web. It talks
-  to an async FastAPI backend (SQLAlchemy 2 and Alembic, with SQLite for local
-  development and PostgreSQL in production). Auth uses short-lived JWTs with
-  single-use, rotating refresh sessions and per-IP and per-email rate limits.
-  Uploads are served only through ownership-checked endpoints, and on the web,
-  nginx serves the static export and proxies the API from the same origin.
-- **Better Writing:** an AI-augmented creative writing platform built as 13
-  Python microservices, each with its own PostgreSQL database (PostGIS, pgvector
-  or Apache AGE where a service needs them). Services call each other over gRPC
-  contracts managed with Buf, and publish domain events on NATS JetStream through
-  FastStream. A FastAPI gateway combines them into one HTTP and WebSocket API. A
-  plot graph, ordered with a NetworkX topological sort, is the clock that
-  versions characters and locations. Sections are co-edited through
-  Yjs-compatible CRDTs (pycrdt), and the AI layer combines LiteLLM, RAG over
-  pgvector and structured output.
-
-Services include new production systems, architecture audits and workflow
-automation. The [website](https://synaptech-solutions.com/) has the details.
-
 ## Synaptech in open source
 
 The projects below came out of the day-to-day work. Each one goes public when
@@ -155,3 +90,68 @@ anything without your approval.
 - **Found a vulnerability?** Don't open a public issue. Follow the
   [security policy](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/SECURITY.md)
   to report it privately.
+
+## Synaptech as a business
+
+Synaptech Solutions is the independent software engineering practice of Germán
+Martínez, based in Uruguay. It builds AI, LLM and backend systems that run in
+production, for teams that need AI to work reliably: AI assistants, ERP and MCP
+integrations, data pipelines and workflow automation. The work is remote, with
+teams in Latin America, the United States and Europe.
+
+Most of the experience is in three areas:
+
+- **ERP software:** assistants that read and act on ERP records, and ERP
+  reporting exposed to LLM clients through the Model Context Protocol (MCP),
+  with OAuth and explicit report parameters.
+- **Chatbots with RAG and GraphRAG:** conversational assistants grounded in
+  product manuals, internal wikis and live business data, orchestrated with
+  LangChain and LangGraph.
+- **Knowledge bases on graph databases:** knowledge graphs built with Neo4j and
+  Cognee, so an assistant can follow how entities relate to each other instead
+  of pulling back loose text chunks.
+
+How the work gets done:
+
+- **Architecture before implementation.** Every project starts with a written
+  spec, so scope and "done" are clear before any code is written.
+- **AI as infrastructure, not magic.** LLM features ship with evals, guardrails
+  and fallbacks, because models fail silently and drift over time.
+- **Honest tradeoffs, documented decisions.** If AI isn't the right tool for a
+  problem, you hear it before anything gets built.
+- **Ownership by default.** Clients get the code, documentation and runbooks,
+  so their systems don't depend on Synaptech to keep running.
+
+**Products in development**
+
+- **Hilo Nativo:** a multi-seller marketplace for handcrafted knitwear. It's a
+  Python 3.12 modular monolith (FastAPI, with Jinja2 and HTMX for server-rendered
+  pages, and SQLAlchemy 2 and Alembic on PostgreSQL) that runs as two process
+  roles from one codebase: the web app, and an APScheduler worker for
+  settlements, payouts, reconciliation and retries. Payment state comes only
+  from verified, idempotent Mercado Pago webhooks. Money moves through an
+  append-only ledger with compensating corrections, and stock is reserved under
+  row locks, with a database constraint that blocks over-reservation.
+  Buyer-seller messages and attachments are encrypted at rest. Attachments go to
+  private object storage, and operator tools sit behind capability-based
+  authorization. Tracing and metrics use OpenTelemetry.
+- **Rentica:** property management for landlords: units, tenants, rent
+  payments, guaranties, rent adjustments, maintenance and tax records. One Expo
+  and React Native (TypeScript) codebase targets iOS, Android and web. It talks
+  to an async FastAPI backend (SQLAlchemy 2 and Alembic, with SQLite for local
+  development and PostgreSQL in production). Auth uses short-lived JWTs with
+  single-use, rotating refresh sessions and per-IP and per-email rate limits.
+  Uploads are served only through ownership-checked endpoints, and on the web,
+  nginx serves the static export and proxies the API from the same origin.
+- **Better Writing:** an AI-augmented creative writing platform built as 13
+  Python microservices, each with its own PostgreSQL database (PostGIS, pgvector
+  or Apache AGE where a service needs them). Services call each other over gRPC
+  contracts managed with Buf, and publish domain events on NATS JetStream through
+  FastStream. A FastAPI gateway combines them into one HTTP and WebSocket API. A
+  plot graph, ordered with a NetworkX topological sort, is the clock that
+  versions characters and locations. Sections are co-edited through
+  Yjs-compatible CRDTs (pycrdt), and the AI layer combines LiteLLM, RAG over
+  pgvector and structured output.
+
+Services include new production systems, architecture audits and workflow
+automation. The [website](https://synaptech-solutions.com/) has the details.
