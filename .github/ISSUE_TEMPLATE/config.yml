@@ -1,10 +1,12 @@
 # Blank issues stay enabled: CONTRIBUTING.md tells people to open an issue for
 # anything the guidelines don't cover, which the forms may not fit.
 blank_issues_enabled: true
+# No security link here: GitHub already adds "Report a security vulnerability"
+# to the issue chooser because the repository has a SECURITY.md.
 contact_links:
-  - name: Report a security vulnerability
-    url: https://github.com/Synaptech-Solutions-SAS/.github/blob/main/SECURITY.md
-    about: Don't open a public issue. Follow the security policy to report it privately by email.
   - name: Contributing guidelines
     url: https://github.com/Synaptech-Solutions-SAS/.github/blob/main/CONTRIBUTING.md
     about: Read how to report bugs, propose changes, and plan significant work before opening an issue.
+  - name: Contact Synaptech
+    url: https://synaptech-solutions.com/contact
+    about: For anything that isn't an issue, email g.martinez@synaptech-solutions.com or use the contact form.

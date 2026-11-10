@@ -3,7 +3,8 @@
 **Practical software. Honest AI.**
 
 🌐 [synaptech-solutions.com](https://synaptech-solutions.com/) ·
-[Español](https://synaptech-solutions.com/es)
+[Español](https://synaptech-solutions.com/es) ·
+✉️ [g.martinez@synaptech-solutions.com](mailto:g.martinez@synaptech-solutions.com)
 
 ## Synaptech as a business
 
