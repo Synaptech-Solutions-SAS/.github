@@ -133,6 +133,33 @@ The LLM orchestrates; deterministic TypeScript tools do the work.
 *v0.1.0 MVP: every agent, command, skill and tool is implemented, and 113 tests
 pass. MIT.*
 
+**The full version (v1.0)** is specified in a PRD and grows the system to 16
+agents, 34 skills and 36 tools, behind the same small set of commands:
+
+- **Separate workflows by kind of work:** `/hf-bugfix` writes a failing
+  regression test before any patch, and ablation then confirms the test catches
+  the bug. `/hf-refactor` writes characterization tests first and requires
+  zero behavior drift unless you approve it. `/hf-replan` regenerates the plan
+  from your feedback, keeps every earlier version, and records the feedback as
+  a decision.
+- **Language-aware testing across 14 ecosystems:** existing project tooling
+  wins, then native tools. For example, Vitest and fast-check for TypeScript,
+  pytest and Hypothesis for Python, `go test` with native fuzzing, proptest and
+  cargo-fuzz for Rust, JUnit 5 and jqwik for Java, and libFuzzer or AFL++ for
+  C and C++. Nothing is installed without approval.
+- **Deeper verification:** fuzz and property testing in smoke, targeted and
+  deep modes, spec drift detection, behavior drift detection, and quality
+  scoring. New subagents write BDD scenarios, attack input surfaces, and
+  prepare releases.
+- **Shipping:** generated CI for GitHub Actions and GitLab, plus release notes
+  and rollback, migration and observability checklists. Production deployment
+  never runs automatically.
+- **Planned for v1.0:** parallel task execution, browser automation, multi-repo
+  support, release automation, a telemetry dashboard, side-by-side comparison
+  of plan versions, and AST-aware ablation.
+- **Approval by default:** it never installs dependencies, deletes files, runs
+  migrations, commits or deploys without your approval.
+
 ### Corrosion
 
 An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
