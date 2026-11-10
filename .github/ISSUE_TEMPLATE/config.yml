@@ -7,6 +7,6 @@ contact_links:
   - name: Contributing guidelines
     url: https://github.com/Synaptech-Solutions-SAS/.github/blob/main/CONTRIBUTING.md
     about: Read how to report bugs, propose changes, and plan significant work before opening an issue.
-  - name: Contact Synaptech
+  - name: Business inquiries
     url: https://synaptech-solutions.com/contact
-    about: For anything that isn't an issue, email g.martinez@synaptech-solutions.com or use the contact form.
+    about: To hire Synaptech or discuss a project, use the contact form or email g.martinez@synaptech-solutions.com. Not for bugs or project support.
