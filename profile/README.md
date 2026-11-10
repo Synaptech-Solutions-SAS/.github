@@ -6,6 +6,91 @@
 [Español](https://synaptech-solutions.com/es) ·
 ✉️ [g.martinez@synaptech-solutions.com](mailto:g.martinez@synaptech-solutions.com)
 
+## Synaptech in open source
+
+The projects below came out of the day-to-day work. Each one goes public when
+it's solid enough for a first release.
+
+**Available now**
+
+### [Corrosion](https://github.com/Synaptech-Solutions-SAS/Corrosion-VST)
+
+An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
+with NIH-plug and an egui editor. Instead of oscillators, every note runs an
+exciter → object → damage → body/space signal path: 16 exciters (strikes, bows,
+grinding, pneumatic jets…) drive 9 objects (pipe, plate, tank, chain, I-beam,
+cable, spring, sheet metal, cog), each an algorithmic modal resonator.
+
+It plays with 16-voice polyphony, full MIDI expression with per-note tuning and
+choke in CLAP and VST3 hosts, four macros, a drum-kit mode and more than 130
+automatable parameters, through a post chain of a ladder filter,
+Lorenz-attractor drive, FEM body resonance, HRTF spread and an oversampled
+diode clipper. The audio callback never allocates, locks or does I/O, which a
+test enforces, and offline render tests hold aliasing to a set budget.
+
+*v0.2.0, with 214 factory presets. Nightly builds for Windows, macOS and Linux
+are validated with clap-validator and pluginval. MIT.*
+
+**Coming soon**
+
+### Omnisnap
+
+Shows exactly which elements render differently in every browser engine your
+users run, with one command and the browsers already installed. Instead of
+pixel diffs, it compares element geometry (sizes, positions, line wraps,
+overflow, truncation) and reports each difference at the element where it
+starts, not at every element it pushes down the page.
+
+It discovers Chrome, Edge, Brave, Opera, Vivaldi, Chromium, Firefox, Safari and
+WebKitGTK and drives them over CDP, WebDriver BiDi or WebDriver Classic, running
+branded browsers as shipped. Every finding comes with a cause: it neutralizes
+the suspects and measures the page again, and a third engine settles which one
+is wrong. Results go to a self-contained local report, or to one pull request
+comment from a report-only GitHub Action on Ubuntu, Windows and macOS.
+
+The prototype found 24/24 planted bugs at the right element, with no false
+reports on bug-free pages across five engines. *Design and prototype: v1 is
+specified in 17 module specs. Apache 2.0.*
+
+### HyperFlow
+
+An [OpenCode](https://opencode.ai) plugin that runs the development lifecycle,
+from product spec to release, as a state machine with quality gates. The LLM
+orchestrates and deterministic TypeScript tools do the work: a PRD is atomized
+into specs, questions and decisions with traceable IDs, planning waits until
+every question is resolved, and a phase kernel refuses illegal transitions.
+
+Implementation is test-first, repairs stop after three attempts, and shipping
+requires lint, typecheck, tests, coverage, security scanning, fuzzing and
+ablation checks that prove the tests catch regressions. *v0.1.0 MVP: 11 agents,
+21 commands, 16 skills and 37 tools, all implemented, with 113 tests passing.
+MIT.*
+
+The full version (v1.0), already specified, adds regression-first bugfix and
+behavior-preserving refactor workflows, versioned re-planning, test tool
+selection across 14 language ecosystems, drift detection, and generated CI and
+release checklists. Parallel tasks, browser automation and multi-repo support
+are planned for v1.0. It won't install, delete, migrate, commit or deploy
+anything without your approval.
+
+**How the projects work**
+
+- **Spec first.** Research and planning come before code. Projects plan their
+  work with [OpenSpec](https://github.com/Fission-AI/OpenSpec) or
+  [agent-skills](https://github.com/addyosmani/agent-skills), and the plans
+  live in the repository, so you can see what's coming before you contribute.
+- **Maintained alongside the business.** Replies and reviews can take a while,
+  but every issue and pull request gets read.
+- **Contributions.** Each project's README says what it accepts at its current
+  stage. Read the
+  [contributing guidelines](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/CONTRIBUTING.md)
+  before you start.
+- **AI-assisted work is accepted**, as long as you understand it, verify it,
+  and disclose it.
+- **Found a vulnerability?** Don't open a public issue. Follow the
+  [security policy](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/SECURITY.md)
+  to report it privately.
+
 ## Synaptech as a business
 
 Synaptech Solutions is the independent software engineering practice of Germán
@@ -70,83 +155,3 @@ How the work gets done:
 
 Services include new production systems, architecture audits and workflow
 automation. The [website](https://synaptech-solutions.com/) has the details.
-
-## Synaptech in open source
-
-The projects below came out of the day-to-day work. They're still private, and each
-one goes public when it's solid enough for a first release.
-
-**Coming soon**
-
-### Omnisnap
-
-Shows exactly which elements render differently in every browser engine your
-users run, with one command and the browsers already installed. Instead of
-pixel diffs, it compares element geometry (sizes, positions, line wraps,
-overflow, truncation) and reports each difference at the element where it
-starts, not at every element it pushes down the page.
-
-It discovers Chrome, Edge, Brave, Opera, Vivaldi, Chromium, Firefox, Safari and
-WebKitGTK and drives them over CDP, WebDriver BiDi or WebDriver Classic, running
-branded browsers as shipped. Every finding comes with a cause: it neutralizes
-the suspects and measures the page again, and a third engine settles which one
-is wrong. Results go to a self-contained local report, or to one pull request
-comment from a report-only GitHub Action on Ubuntu, Windows and macOS.
-
-The prototype found 24/24 planted bugs at the right element, with no false
-reports on bug-free pages across five engines. *Design and prototype: v1 is
-specified in 17 module specs. Apache 2.0.*
-
-### OpenCode HyperFlow
-
-An [OpenCode](https://opencode.ai) plugin that runs the development lifecycle,
-from product spec to release, as a state machine with quality gates. The LLM
-orchestrates and deterministic TypeScript tools do the work: a PRD is atomized
-into specs, questions and decisions with traceable IDs, planning waits until
-every question is resolved, and a phase kernel refuses illegal transitions.
-
-Implementation is test-first, repairs stop after three attempts, and shipping
-requires lint, typecheck, tests, coverage, security scanning, fuzzing and
-ablation checks that prove the tests catch regressions. *v0.1.0 MVP: 11 agents,
-21 commands, 16 skills and 37 tools, all implemented, with 113 tests passing.
-MIT.*
-
-The full version (v1.0), already specified, adds regression-first bugfix and
-behavior-preserving refactor workflows, versioned re-planning, test tool
-selection across 14 language ecosystems, drift detection, and generated CI and
-release checklists. Parallel tasks, browser automation and multi-repo support
-are planned for v1.0. It won't install, delete, migrate, commit or deploy
-anything without your approval.
-
-### Corrosion
-
-An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
-with NIH-plug and an egui editor. Instead of oscillators, every note runs an
-exciter → object → damage → body/space signal path: 16 exciters (strikes, bows,
-grinding, pneumatic jets…) drive 9 objects (pipe, plate, tank, chain, I-beam,
-cable, spring, sheet metal, cog), each an algorithmic modal resonator.
-
-It plays with 16-voice polyphony, full MIDI expression, four macros, three play
-modes and more than 130 automatable parameters, through a post chain of a WDF
-ladder filter, Lorenz-attractor drive, FEM body resonance and HRTF spread. The
-audio callback never allocates, locks or does I/O, which a test enforces, and
-offline render tests hold aliasing to a set budget. *v0.1.0, with 50 factory
-presets.*
-
-**How the projects work**
-
-- **Spec first.** Research and planning come before code. Projects plan their
-  work with [OpenSpec](https://github.com/Fission-AI/OpenSpec) or
-  [agent-skills](https://github.com/addyosmani/agent-skills), and the plans
-  live in the repository, so you can see what's coming before you contribute.
-- **Maintained alongside the business.** Replies and reviews can take a while,
-  but every issue and pull request gets read.
-- **Contributions.** Each project's README says what it accepts at its current
-  stage. Read the
-  [contributing guidelines](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/CONTRIBUTING.md)
-  before you start.
-- **AI-assisted work is accepted**, as long as you understand it, verify it,
-  and disclose it.
-- **Found a vulnerability?** Don't open a public issue. Follow the
-  [security policy](https://github.com/Synaptech-Solutions-SAS/.github/blob/main/SECURITY.md)
-  to report it privately.
