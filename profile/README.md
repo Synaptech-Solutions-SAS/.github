@@ -77,18 +77,87 @@ bar for a first release.
 
 **Coming soon**
 
-- **Omnisnap:** shows exactly which elements render differently in every
-  browser engine your users run, with one command and the browsers already
-  installed. It compares element geometry across engines, explains why each
-  difference happens, and tells you whether anyone would see it.
-  *Design and prototype.*
-- **OpenCode HyperFlow:** an [OpenCode](https://opencode.ai) plugin for
-  structured development workflows. It turns a product spec into atomic specs,
-  a plan and a task graph, then guides implementation with TDD and quality
-  gates. *v0.1.0 MVP.*
-- **Corrosion:** an industrial physical-modeling instrument for VST3 and CLAP,
-  written in Rust. MIDI notes excite modal resonators tuned for damaged metal,
-  friction and mechanical tension instead of synth oscillators. *v0.1.0.*
+### Omnisnap
+
+Shows exactly which elements render differently in every browser engine your
+users run, with one command and the browsers already installed. Instead of
+pixel diffs, it compares **element geometry** (sizes, positions, line wraps,
+overflow, truncation) and reports each difference at the element where it
+starts, not at every element it pushes down the page.
+
+- **Your browsers, as installed:** it discovers Chrome, Edge, Brave, Opera,
+  Vivaldi, Chromium, Firefox, Safari and WebKitGTK, and drives them over CDP,
+  WebDriver BiDi or WebDriver Classic. Nothing is downloaded unless you ask, and
+  branded browsers run as shipped, so Brave Shields and Edge tracking
+  prevention behave as they do for your users.
+- **Stable captures:** each engine is captured after fonts, lazy content and
+  animations settle, and twice, so dynamic content is recognized and ignored.
+- **Explained findings:** suspected causes (fractional line-heights, fonts,
+  form-control defaults) are neutralized and the page re-measured to confirm the
+  cause and the fix. A third engine family decides which engine is the odd one
+  out, and broken design intent (alignments, equal heights, even spacing) is
+  flagged.
+- **Local and CI:** a self-contained local report with synced side-by-side
+  screenshots, and a report-only GitHub Action on Ubuntu, Windows and macOS that
+  posts one pull request comment. npm and PyPI packages will wrap the same Go
+  binary.
+- **Prototype results:** 24/24 planted bugs found at the right element, zero
+  report-level causes on bug-free control pages across five engines, and at
+  least 99.9% of elements matched between engines on real sites.
+
+*Design and prototype: v1 is specified in 17 module specs. Apache 2.0.*
+
+### OpenCode HyperFlow
+
+An [OpenCode](https://opencode.ai) plugin that runs the whole development
+lifecycle, from product spec to release, as a state machine with quality gates.
+The LLM orchestrates; deterministic TypeScript tools do the work.
+
+- **What it installs:** 11 specialized agents, 21 `/hf-*` commands, 16 skills,
+  37 deterministic tools and 7 plugin modules, with one
+  `npx opencode-hyperflow install`.
+- **Spec to tasks:** a PRD is atomized into specs, open questions and decisions
+  with traceable IDs (`SPEC-0001`, `TASK-0001`). Planning is blocked until every
+  question is resolved. Plans are immutable and versioned, and tasks form a
+  dependency graph with parallelization hints.
+- **Enforced workflow:** a phase kernel (`INITIALIZED` → `PRD_ATOMIZED` →
+  `PLAN_CONFIRMED` → `TASKS_READY` → … → `HANDOFF_READY`) refuses illegal
+  transitions.
+- **TDD and gates:** implementation requires a failing test first, repairs stop
+  after three attempts, and shipping needs lint, typecheck, unit tests,
+  coverage, BDD, security scanning, fuzzing and ablation checks that confirm the
+  tests catch regressions.
+- **Safety first:** no silent overwrites, backups before every write, and
+  approval gates for destructive actions.
+
+*v0.1.0 MVP: every agent, command, skill and tool is implemented, and 113 tests
+pass. MIT.*
+
+### Corrosion
+
+An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
+with NIH-plug and an egui editor. Instead of oscillators, every note runs an
+**exciter → object → damage → body/space** signal path, tuned for damaged
+metal, friction, weight and mechanical tension.
+
+- **Sound sources:** 16 exciters (strikes, bows, grinding, pneumatic jets,
+  electromagnetic hum, particle rain…) in three envelope families, driving 9
+  objects (pipe, plate, tank, chain, I-beam, taut cable, coil spring, sheet
+  metal, industrial cog). Each object is an algorithmic modal resonator with
+  its own character parameters.
+- **Playing:** 16-voice polyphony with tiered voice stealing, full MIDI
+  expression (pitch bend, channel and polyphonic pressure, mod wheel, sustain),
+  four macros (Mass, Corrosion, Violence, Brightness), tonal, kit and drone
+  modes, and more than 130 automatable parameters.
+- **Post chain:** a WDF-style ladder filter, Lorenz-attractor drive, FEM body
+  resonance, HRTF stereo spread, factory, spring and tempo-synced echo spaces,
+  and an oversampled clipper. Quality modes scale oversampling (1× to 16×)
+  and modal density together.
+- **Real-time safe:** no heap allocation, locks or I/O in the audio callback
+  (enforced by a test), NaN and denormal guards at every voice, and aliasing
+  held to an asserted budget by offline render tests.
+
+*v0.1.0, with 50 factory presets.*
 
 **How the projects work**
 
