@@ -52,7 +52,7 @@ The prototype found 24/24 planted bugs at the right element, with no false
 reports on bug-free pages across five engines. *Design and prototype: v1 is
 specified in 17 module specs. Apache 2.0.*
 
-### OpenCode HyperFlow
+### HyperFlow
 
 An [OpenCode](https://opencode.ai) plugin that runs the development lifecycle,
 from product spec to release, as a state machine with quality gates. The LLM
