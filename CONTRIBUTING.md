@@ -122,7 +122,13 @@ need a planning artifact.
 
 ## Submitting a pull request
 
-1. Fork the repository and create a branch from the default branch.
+1. Fork the repository and create your own branch for the change. Don't commit
+   directly to `dev` or `main`.
+   - If the repository has a `dev` branch, create your branch from `dev` and
+     open your pull request against `dev`. Maintainers merge `dev` into `main`
+     through their own pull requests, so don't target `main`.
+   - If it doesn't, create your branch from the default branch and open your
+     pull request against it.
 2. Keep each pull request focused on a single logical change. Don't mix
    refactoring or formatting changes with behavior changes.
 3. Follow the [commit message convention](#commit-messages). Signing off your
@@ -173,11 +179,13 @@ commit's author, so re-author those commits under your name and sign them off
 in one pass, then update your branch:
 
 ```
-git rebase --exec "git commit --amend --no-edit --reset-author --signoff" origin/main
+git rebase --exec "git commit --amend --no-edit --reset-author --signoff" origin/dev
 git push --force-with-lease
 ```
 
-Replace `origin/main` with the branch you started from. The tool's
+Replace `origin/dev` with the branch you started from, such as `origin/main` in
+a repository without a `dev` branch. Only rewrite your own branch this way,
+never `dev` or `main`. The tool's
 `Co-Authored-By:` trailer is kept, so it remains credited. Do this before
 writing the pull request description, because rewriting changes the commit
 hashes. A sign-off added by an AI tool in its own name doesn't count: the
