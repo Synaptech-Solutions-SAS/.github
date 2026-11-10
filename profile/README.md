@@ -134,7 +134,7 @@ The LLM orchestrates; deterministic TypeScript tools do the work.
 pass. MIT.*
 
 **The full version (v1.0)** is specified in a PRD and grows the system to 16
-agents, 34 skills and 36 tools, behind the same small set of commands:
+agents and 34 skills, behind the same small set of commands:
 
 - **Separate workflows by kind of work:** `/hf-bugfix` writes a failing
   regression test before any patch, and ablation then confirms the test catches
