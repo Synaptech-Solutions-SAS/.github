@@ -73,8 +73,28 @@ automation. The [website](https://synaptech-solutions.com/) has the details.
 
 ## Synaptech in open source
 
-The projects below came out of the day-to-day work. They're still private, and each
-one goes public when it's solid enough for a first release.
+The projects below came out of the day-to-day work. Each one goes public when
+it's solid enough for a first release.
+
+**Available now**
+
+### [Corrosion](https://github.com/Synaptech-Solutions-SAS/Corrosion-VST)
+
+An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
+with NIH-plug and an egui editor. Instead of oscillators, every note runs an
+exciter → object → damage → body/space signal path: 16 exciters (strikes, bows,
+grinding, pneumatic jets…) drive 9 objects (pipe, plate, tank, chain, I-beam,
+cable, spring, sheet metal, cog), each an algorithmic modal resonator.
+
+It plays with 16-voice polyphony, full MIDI expression with per-note tuning and
+choke in CLAP and VST3 hosts, four macros, a drum-kit mode and more than 130
+automatable parameters, through a post chain of a ladder filter,
+Lorenz-attractor drive, FEM body resonance, HRTF spread and an oversampled
+diode clipper. The audio callback never allocates, locks or does I/O, which a
+test enforces, and offline render tests hold aliasing to a set budget.
+
+*v0.2.0, with 214 factory presets. Nightly builds for Windows, macOS and Linux
+are validated with clap-validator and pluginval. MIT.*
 
 **Coming soon**
 
@@ -117,21 +137,6 @@ selection across 14 language ecosystems, drift detection, and generated CI and
 release checklists. Parallel tasks, browser automation and multi-repo support
 are planned for v1.0. It won't install, delete, migrate, commit or deploy
 anything without your approval.
-
-### Corrosion
-
-An industrial physical-modeling instrument for VST3 and CLAP, written in Rust
-with NIH-plug and an egui editor. Instead of oscillators, every note runs an
-exciter → object → damage → body/space signal path: 16 exciters (strikes, bows,
-grinding, pneumatic jets…) drive 9 objects (pipe, plate, tank, chain, I-beam,
-cable, spring, sheet metal, cog), each an algorithmic modal resonator.
-
-It plays with 16-voice polyphony, full MIDI expression, four macros, three play
-modes and more than 130 automatable parameters, through a post chain of a WDF
-ladder filter, Lorenz-attractor drive, FEM body resonance and HRTF spread. The
-audio callback never allocates, locks or does I/O, which a test enforces, and
-offline render tests hold aliasing to a set budget. *v0.1.0, with 50 factory
-presets.*
 
 **How the projects work**
 
