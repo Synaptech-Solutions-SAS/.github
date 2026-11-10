@@ -13,6 +13,17 @@ production, for teams that need AI to work reliably: AI assistants, ERP and MCP
 integrations, data pipelines and workflow automation. The work is remote, with
 teams in Latin America, the United States and Europe.
 
+Areas of deep experience:
+
+- **ERP software:** assistants that read and act on ERP records, and ERP
+  reporting exposed to LLM clients through the Model Context Protocol (MCP),
+  with OAuth and explicit report parameters.
+- **Chatbots with RAG and GraphRAG:** conversational assistants grounded in
+  product manuals, internal wikis and live business data, orchestrated with
+  LangChain and LangGraph.
+- **Knowledge bases on graph databases:** knowledge graphs built with Neo4j and
+  Cognee that give assistants connected context, not isolated text chunks.
+
 How the work gets done:
 
 - **Architecture before implementation.** Every project starts with a written
