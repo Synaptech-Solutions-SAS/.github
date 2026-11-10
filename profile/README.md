@@ -13,7 +13,7 @@ production, for teams that need AI to work reliably: AI assistants, ERP and MCP
 integrations, data pipelines and workflow automation. The work is remote, with
 teams in Latin America, the United States and Europe.
 
-Areas of deep experience:
+Most of the experience is in three areas:
 
 - **ERP software:** assistants that read and act on ERP records, and ERP
   reporting exposed to LLM clients through the Model Context Protocol (MCP),
@@ -22,7 +22,8 @@ Areas of deep experience:
   product manuals, internal wikis and live business data, orchestrated with
   LangChain and LangGraph.
 - **Knowledge bases on graph databases:** knowledge graphs built with Neo4j and
-  Cognee that give assistants connected context, not isolated text chunks.
+  Cognee, so an assistant can follow how entities relate to each other instead
+  of pulling back loose text chunks.
 
 How the work gets done:
 
@@ -30,8 +31,8 @@ How the work gets done:
   spec, so scope and "done" are clear before any code is written.
 - **AI as infrastructure, not magic.** LLM features ship with evals, guardrails
   and fallbacks, because models fail silently and drift over time.
-- **Honest tradeoffs, documented decisions.** No vague AI hype: if AI isn't the
-  right tool for a problem, that gets said up front.
+- **Honest tradeoffs, documented decisions.** If AI isn't the right tool for a
+  problem, you hear it before anything gets built.
 - **Ownership by default.** Clients get the code, documentation and runbooks,
   so their systems don't depend on Synaptech to keep running.
 
@@ -66,14 +67,13 @@ How the work gets done:
   Yjs-compatible CRDTs (pycrdt), and the AI layer combines LiteLLM, RAG over
   pgvector and structured output.
 
-Services range from new production systems and architecture audits to workflow
+Services include new production systems, architecture audits and workflow
 automation. The [website](https://synaptech-solutions.com/) has the details.
 
 ## Synaptech in open source
 
-Some of the tools built for this work are being prepared for release as open
-source. They're private for now: each one goes public once it meets the quality
-bar for a first release.
+The projects below came out of the day-to-day work. They're still private, and each
+one goes public when it's solid enough for a first release.
 
 **Coming soon**
 
@@ -87,8 +87,8 @@ starts, not at every element it pushes down the page.
 
 It discovers Chrome, Edge, Brave, Opera, Vivaldi, Chromium, Firefox, Safari and
 WebKitGTK and drives them over CDP, WebDriver BiDi or WebDriver Classic, running
-branded browsers as shipped. Each finding is explained: suspected causes are
-neutralized and the page re-measured, and a third engine decides which engine
+branded browsers as shipped. Every finding comes with a cause: it neutralizes
+the suspects and measures the page again, and a third engine settles which one
 is wrong. Results go to a self-contained local report, or to one pull request
 comment from a report-only GitHub Action on Ubuntu, Windows and macOS.
 
@@ -114,8 +114,8 @@ The full version (v1.0), already specified, adds regression-first bugfix and
 behavior-preserving refactor workflows, versioned re-planning, test tool
 selection across 14 language ecosystems, drift detection, and generated CI and
 release checklists. Parallel tasks, browser automation and multi-repo support
-are planned for v1.0. Nothing is installed, deleted, migrated, committed or
-deployed without your approval.
+are planned for v1.0. It won't install, delete, migrate, commit or deploy
+anything without your approval.
 
 ### Corrosion
 
